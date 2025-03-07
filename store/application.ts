@@ -1,12 +1,25 @@
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia";
+import { ref } from "vue";
 
-/**
- * Хранилище приложения для управления глобальными состояниями.
- */
-export const useApplicationStore = defineStore('application', () => {
-  const welcome = 'Привет!'
+export const useApplicationStore = defineStore("application", () => {
+  const showNotification = ref<boolean>(false);
+  const productsCount = ref<number>(0);
+
+  function showCartNotification(): void {
+    showNotification.value = true;
+    setTimeout(() => {
+      showNotification.value = false;
+    }, 2000);
+  }
+
+  function updateProductsCount(count: number): void {
+    productsCount.value = count;
+  }
 
   return {
-    welcome,
-  }
-})
+    showNotification,
+    productsCount,
+    showCartNotification,
+    updateProductsCount,
+  };
+});
