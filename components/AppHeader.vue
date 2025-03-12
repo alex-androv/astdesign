@@ -21,15 +21,6 @@
 import { useApplicationStore } from "~/store/application";
 
 const store = useApplicationStore();
-// interface Props {
-//   productsCount: number;
-// }
-
-// defineProps<Props>();
-
-// defineProps<{
-//   productsCount: number;
-// }>();
 </script>
 
 <style>
