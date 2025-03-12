@@ -9,7 +9,7 @@
       <div class="flex items-center">
         <Icon
           name="material-symbols:shopping-basket-outline"
-          class="mr-2 text-xl"
+          class="mr-2 text-xl basket"
         />
         <span class="text-sm mt-1">{{ store.productsCount }} товаров</span>
       </div>
@@ -35,5 +35,9 @@ const store = useApplicationStore();
 <style>
 header {
   box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.1);
+}
+.basket {
+  width: 32px;
+  height: 32px;
 }
 </style>
