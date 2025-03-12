@@ -11,18 +11,25 @@
           name="material-symbols:shopping-basket-outline"
           class="mr-2 text-xl"
         />
-        <span class="text-sm mt-1">{{ productsCount }} товаров</span>
+        <span class="text-sm mt-1">{{ store.productsCount }} товаров</span>
       </div>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
-interface Props {
-  productsCount: number;
-}
+import { useApplicationStore } from "~/store/application";
 
-defineProps<Props>();
+const store = useApplicationStore();
+// interface Props {
+//   productsCount: number;
+// }
+
+// defineProps<Props>();
+
+// defineProps<{
+//   productsCount: number;
+// }>();
 </script>
 
 <style>

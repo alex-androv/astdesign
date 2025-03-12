@@ -29,10 +29,4 @@ onMounted(() => {
     store.updateProductsCount(products.value.length);
   }
 });
-
-const handleAddToCart = (product: Product): void => {
-  store.showCartNotification();
-  // В будущем здесь можно реализовать добавление товара в корзину
-  console.log("Добавлен товар:", product.name);
-};
 </script>

@@ -42,7 +42,7 @@
     >
       <div class="flex justify-start">
         <button
-          @click="addToCart"
+          @click="store.handleAddToCart"
           class="bg-black text-white py-3 px-6 text-sm font-medium rounded-lg cursor-pointer"
         >
           В корзину
@@ -55,6 +55,8 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import type { Product } from "~/types/product";
+import { useApplicationStore } from "~/store/application";
+import { formatPrice } from "~/utils/formatPrice";
 
 interface Props {
   product: Product;
@@ -62,9 +64,7 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const emit = defineEmits<{
-  addToCart: [product: Product];
-}>();
+const store = useApplicationStore();
 
 const isHovered = ref<boolean>(false);
 
@@ -76,14 +76,6 @@ const discount = computed<number | null>(() => {
   );
   return discount;
 });
-
-const formatPrice = (price: number): string => {
-  return new Intl.NumberFormat("ru-RU").format(price);
-};
-
-const addToCart = (): void => {
-  emit("addToCart", props.product);
-};
 </script>
 
 <style scoped>

@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
+import type { Product } from "types/product";
 
 export const useApplicationStore = defineStore("application", () => {
   const showNotification = ref<boolean>(false);
@@ -12,6 +13,12 @@ export const useApplicationStore = defineStore("application", () => {
     }, 2000);
   }
 
+  const handleAddToCart = (product: Product): void => {
+    showCartNotification();
+    // В будущем здесь можно реализовать добавление товара в корзину
+    console.log("Добавлен товар:", product.name);
+  };
+
   function updateProductsCount(count: number): void {
     productsCount.value = count;
   }
@@ -21,5 +28,6 @@ export const useApplicationStore = defineStore("application", () => {
     productsCount,
     showCartNotification,
     updateProductsCount,
+    handleAddToCart,
   };
 });
